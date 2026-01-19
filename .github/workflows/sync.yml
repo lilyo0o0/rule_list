@@ -1,0 +1,49 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: sync
+
+on:
+  schedule:
+    - cron: '35 4 * * *' 
+  workflow_dispatch:
+  push:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref }}
+    - name: Set up Python 3.13
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.13"
+    - name: Install dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        pip3 install requests
+    - name: Run transformation script
+      run: |
+        python3 a/b.py
+    - name: Commit and Push
+      run: |
+        mkdir -p deploy/rule
+        cp -r txt/* deploy/rule/
+        cd deploy/
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git checkout -b dev
+        git add deploy/
+        if git diff --staged --quiet; then
+          echo "No changes in rule files."
+        else
+          export TZ='Asia/Shanghai'
+          git commit -m "Auto-sync and transform rules: $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
+        fi

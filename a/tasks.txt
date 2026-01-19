@@ -1,0 +1,4 @@
+# 任务列表 - 每行一个类别
+# 以 # 开头的行为注释, 第二列及之后的为排除项
+google,youtube
+category-ai-!cn
