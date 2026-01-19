@@ -1,0 +1,41 @@
+#########################################
+# DOMAIN: 匹配完整域名
+# DOMAIN-SUFFIX: 匹配域名后缀
+# DOMAIN-KEYWORD: 域名关键字
+# DOMAIN-WILDCARD: 域名通配符
+#
+#########################################
+DOMAIN-SUFFIX,journals.ametsoc.org
+DOMAIN-SUFFIX,sciencedirectassets.com
+DOMAIN-SUFFIX,science.org
+DOMAIN-SUFFIX,nature.com
+DOMAIN-SUFFIX,wiley.com
+DOMAIN-SUFFIX,sciencedirect.com
+DOMAIN-SUFFIX,springernature.com
+DOMAIN-SUFFIX,elsevier.com
+DOMAIN-SUFFIX,pnas.org
+DOMAIN-SUFFIX,clarivate.com
+DOMAIN-SUFFIX,agu.org
+DOMAIN-SUFFIX,copernicus.org
+DOMAIN-SUFFIX,springer.com
+DOMAIN-SUFFIX,engineeringvillage.com
+DOMAIN-SUFFIX,scopus.com
+DOMAIN-SUFFIX,tandfonline.com
+DOMAIN-SUFFIX,pqdtcn.com
+DOMAIN-SUFFIX,sciencemag.org
+DOMAIN-SUFFIX,iresearchbook.cn
+DOMAIN-SUFFIX,acm.org
+DOMAIN-SUFFIX,iop.org
+DOMAIN-SUFFIX,aip.org
+DOMAIN-SUFFIX,cnpereading.com
+DOMAIN-SUFFIX,jstor.org
+DOMAIN-SUFFIX,ieee.org
+DOMAIN-SUFFIX,acs.org
+DOMAIN-SUFFIX,cas.org
+DOMAIN-SUFFIX,rsc.org
+DOMAIN-SUFFIX,jamanetwork.com
+DOMAIN-SUFFIX,aaas.org
+DOMAIN-SUFFIX,webofscience.com
+DOMAIN-SUFFIX,webofknowledge.com
+DOMAIN-SUFFIX,hydrology-and-earth-system-sciences.net
+################## EOF ###################
