@@ -33,7 +33,6 @@ jobs:
         python3 a/b.py
     - name: Commit and Push
       run: |
-        git fetch origin
         mkdir -p deploy/rule
         cp -r txt/* deploy/rule/
         cd deploy/
