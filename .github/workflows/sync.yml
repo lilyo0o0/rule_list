@@ -34,16 +34,15 @@ jobs:
     - name: Commit and Push
       run: |
         git checkout -b dev
-        mkdir -p deploy/rule
-        cp -r txt/* deploy/rule/
-        cd deploy/
+        mkdir -p rule
+        cp -r txt/* rule/
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add .
+        git add rule/
         if git diff --staged --quiet; then
           echo "No changes in rule files."
         else
           export TZ='Asia/Shanghai'
           git commit -m "Auto-sync and transform rules: $(date +'%Y-%m-%d %H:%M:%S')"
-          git push --set-upstream origin dev
+          git push "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:dev
         fi
