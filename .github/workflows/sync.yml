@@ -34,7 +34,6 @@ jobs:
     - name: Commit and Push
       run: |
         git fetch origin
-        rm -rf a rule .github/workflows
         mkdir -p deploy/rule
         cp -r txt/* deploy/rule/
         cd deploy/
