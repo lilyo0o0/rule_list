@@ -44,6 +44,6 @@ jobs:
         else
           export TZ='Asia/Shanghai'
           git commit -m "Auto-sync and transform rules: $(date +'%Y-%m-%d %H:%M:%S')"
-          git branch --set-upstream-to=origin/dev dev
+          git fetch
           git push "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:dev
         fi
