@@ -33,7 +33,14 @@ jobs:
         python3 a/b.py
     - name: Commit and Push
       run: |
-        git checkout -b dev
+        git fetch origin
+        # 如果远程 dev 分支存在，则基于它创建；否则新建
+        if git show-ref --verify --quiet refs/remotes/origin/dev; then
+          git checkout -B dev origin/dev
+        else
+          git checkout -b dev
+        fi
+        rm -rf rule
         mkdir -p rule
         cp -r txt/* rule/
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -44,6 +51,5 @@ jobs:
         else
           export TZ='Asia/Shanghai'
           git commit -m "Auto-sync and transform rules: $(date +'%Y-%m-%d %H:%M:%S')"
-          git fetch
           git push "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:dev
         fi
